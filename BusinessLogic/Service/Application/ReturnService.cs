@@ -35,10 +35,6 @@ namespace BusinessLogic.Service.Application
             {
                 return status;
             }
-            else if (string.IsNullOrWhiteSpace(Convert.ToString(returnVM.Last_Condition)))
-            {
-                return status;
-            }
             else if (string.IsNullOrWhiteSpace(Convert.ToString(returnVM.Date_Return)))
             {
                 return status;

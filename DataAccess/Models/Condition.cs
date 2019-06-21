@@ -14,16 +14,16 @@ namespace DataAccess.Models
     {
         public Condition() { }
 
-        public string Conditon { get; set; }
+        public string Condition_Name { get; set; }
 
         public Condition(ConditionVM conditionVM)
         {
-            this.Conditon = conditionVM.Condition;
+            this.Condition_Name = conditionVM.Condition_Name;
         }
 
         public void Update(int id, ConditionVM conditionVM)
         {
-            this.Conditon = conditionVM.Condition;
+            this.Condition_Name = conditionVM.Condition_Name;
             
         }
 

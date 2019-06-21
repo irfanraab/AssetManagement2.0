@@ -31,7 +31,7 @@ namespace BusinessLogic.Service.Application
 
         public bool Insert(ConditionVM conditionVM)
         {
-            if (string.IsNullOrWhiteSpace(conditionVM.Condition))
+            if (string.IsNullOrWhiteSpace(conditionVM.Condition_Name))
             {
                 return status;
             }

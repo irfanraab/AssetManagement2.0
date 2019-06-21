@@ -20,3 +20,14 @@ C:\Users\Irfan\Desktop\Bootcamp MII\Git\Asset-Management\Core\obj\Debug\Core.csp
 C:\Users\Irfan\Desktop\Bootcamp MII\Git\Asset-Management\Core\obj\Debug\Core.exe
 C:\Users\Irfan\Desktop\Bootcamp MII\Git\Asset-Management\Core\obj\Debug\Core.pdb
 C:\Users\Irfan\Desktop\Bootcamp MII\Git\Asset-Management\Core\obj\Debug\Core.csprojAssemblyReference.cache
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\Core.exe.config
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\Core.exe
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\Core.pdb
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\EntityFramework.dll
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\EntityFramework.xml
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.csproj.CopyComplete
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.exe
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.pdb

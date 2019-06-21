@@ -51,13 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\MyContext.cs" />
-    <Compile Include="Migrations\201906200856509_adding.cs" />
-    <Compile Include="Migrations\201906200856509_adding.Designer.cs">
-      <DependentUpon>201906200856509_adding.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906200858293_addingFK.cs" />
-    <Compile Include="Migrations\201906200858293_addingFK.Designer.cs">
-      <DependentUpon>201906200858293_addingFK.cs</DependentUpon>
+    <Compile Include="Migrations\201906210912327_AssetManagementDB.cs" />
+    <Compile Include="Migrations\201906210912327_AssetManagementDB.Designer.cs">
+      <DependentUpon>201906210912327_AssetManagementDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Condition.cs" />
@@ -94,11 +90,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906200856509_adding.resx">
-      <DependentUpon>201906200856509_adding.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906200858293_addingFK.resx">
-      <DependentUpon>201906200858293_addingFK.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906210912327_AssetManagementDB.resx">
+      <DependentUpon>201906210912327_AssetManagementDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

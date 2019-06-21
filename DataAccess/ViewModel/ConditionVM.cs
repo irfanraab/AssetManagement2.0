@@ -10,12 +10,12 @@ namespace DataAccess.ViewModel
     {
         public ConditionVM() { }
 
-        public ConditionVM(string condition)
+        public ConditionVM(string condition_Name)
         {
-            this.Condition = condition;
+            this.Condition_Name = condition_Name;
         }
 
         public int Id { get; set; }
-        public string Condition { get; set; }
+        public string Condition_Name { get; set; }
     }
 }
