@@ -33,7 +33,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-    (function (i, s, o, g, r, a, m) {
+        (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
@@ -761,11 +761,11 @@
     <script src="~/Content/js/dashboard1.js"></script>
     <script src="~/Content/js/toastr.js"></script>
     <script>
-$.toast({
+        $.toast({
             heading: 'Welcome to Monster admin',
             text: 'Use the predefined ones, or specify a custom position object.',
             position: 'top-right',
-            loaderBg:'#ff6849',
+            loaderBg: '#ff6849',
             icon: 'info',
             hideAfter: 3000,
             stack: 6
@@ -774,5 +774,6 @@ $.toast({
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="~/Content/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
