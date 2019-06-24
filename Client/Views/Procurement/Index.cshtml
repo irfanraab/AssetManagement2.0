@@ -1,0 +1,113 @@
+﻿@{
+    Layout = "~/Views/Shared/AdminLayout/_LayoutAdministrator.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<head>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <button type="button" id="Create" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="ClearScreen();">Create New</button><br /><br />
+        <table class="table table-hover" id="tableProcurement">
+            <thead>
+                <tr>
+                    <th>
+                        No.
+                    </th>
+                    <th>
+                        Name Procurement
+                    </th>
+                    <th>
+                        Admin
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Date Procurement
+                    </th>
+                    <th>
+                        Quantitiy
+                    </th>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                        Type Item
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tbody"></tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Procurement Form</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="Id">Id</label>
+                            <input type="text" class="form-control" id="Id" placeholder="Id" disabled="disabled" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Name Procurement</label>
+                            <input type="text" class="form-control" id="Name" placeholder="Name Item" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Admin">Admin</label>
+                            <input type="text" class="form-control" id="Admin" placeholder="Admin" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description</label>
+                            <textarea type="text" class="form-control" id="Description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="Price">Floor</label>
+                            <input type="text" class="form-control" id="Price" placeholder="Price" />
+                        </div>
+                        <div class="form-group">
+                            <label for="DateProcurement">Date Procurement</label>
+                            <input type="date" class="form-control" id="DateProcurement" placeholder="Date Procurement" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Quantity">Quantity</label>
+                            <input type="text" class="form-control" id="Quantity" placeholder="Quantity" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Item">Item</label>
+                            <input type="text" class="form-control" id="Item" placeholder="Item" />
+                        </div>
+                        <div class="form-group">
+                            <label for="TypeItem">Item Type</label>
+                            <input type="text" class="form-control" id="TypeItem" placeholder="Type Item" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="Save" onclick="Validate();">Add</button>
+                    <button type="button" class="btn btn-primary" id="Update" style="display:none;" onclick="Validate();">Update</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section scripts {
+    <script src="~/Content/jquery/jquery.min.js"></script>
+    <script src="~/Content/assets/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Content/sweetalert/sweetalert.min.js"></script>
+    <link href="~/Content/sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="~/Content/datatables/jquery.dataTables.min.js"></script>
+    <link href="~/Content/datatables/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Admin/Procurement/ProcurementScript.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

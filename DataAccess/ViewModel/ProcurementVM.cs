@@ -22,6 +22,19 @@ namespace DataAccess.ViewModel
             this.TypeItem_Id = typeItem_Id;
         }
 
+        public void Update(int id, int admin_Id, string name_Procurement, string description, double price, DateTimeOffset date_procurement, int quantity, int item_Id, int typeItem_Id)
+        {
+            this.Id = id;
+            this.Admin_Id = admin_Id;
+            this.Name_Procurement = name_Procurement;
+            this.Description = description;
+            this.Price = price;
+            this.Date_Procurement = date_procurement;
+            this.Quantity = quantity;
+            this.Item_Id = item_Id;
+            this.TypeItem_Id = typeItem_Id;
+        }
+
         public int Id { get; set; }
         public int Admin_Id { get; set; }
         public string Name_Procurement { get; set; }

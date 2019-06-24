@@ -32,7 +32,7 @@ namespace API.Controllers
             var result = iReturnService.Get();
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
@@ -44,13 +44,13 @@ namespace API.Controllers
             var result = iReturnService.Get(id);
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
 
         // PUT: api/Returns/5
-        public HttpResponseMessage UpdateReturn(int id, ReturnVM returnVM)
+        public HttpResponseMessage PutReturn(int id, ReturnVM returnVM)
         {
             var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
             var result = iReturnService.Update(id, returnVM);

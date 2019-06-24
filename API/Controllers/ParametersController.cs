@@ -32,7 +32,7 @@ namespace API.Controllers
             var result = iParameterService.Get();
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
@@ -44,13 +44,13 @@ namespace API.Controllers
             var result = iParameterService.Get(id);
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
 
         // PUT: api/Parameters/5
-        public HttpResponseMessage UpdateParameter(int id, ParameterVM parameterVM)
+        public HttpResponseMessage PutParameter(int id, ParameterVM parameterVM)
         {
             var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
             var result = iParameterService.Update(id, parameterVM);

@@ -32,7 +32,7 @@ namespace API.Controllers
             var result = iLoaningService.Get();
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
@@ -44,13 +44,13 @@ namespace API.Controllers
             var result = iLoaningService.Get(id);
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
 
         // PUT: api/Loanings/5
-        public HttpResponseMessage UpdateLoaning(int id, LoaningVM loaningVM)
+        public HttpResponseMessage PutLoaning(int id, LoaningVM loaningVM)
         {
             var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
             var result = iLoaningService.Update(id, loaningVM);

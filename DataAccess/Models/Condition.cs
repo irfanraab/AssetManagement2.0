@@ -24,7 +24,6 @@ namespace DataAccess.Models
         public void Update(int id, ConditionVM conditionVM)
         {
             this.Condition_Name = conditionVM.Condition_Name;
-            
         }
 
         public void Delete()

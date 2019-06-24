@@ -43,14 +43,14 @@ namespace API.Controllers
             var result = iConditionService.Get(id);
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
 
 
         // PUT: api/Conditions/5
-        public HttpResponseMessage UpdateCondition(int id, ConditionVM conditionVM)
+        public HttpResponseMessage PutCondition(int id, ConditionVM conditionVM)
         {
             var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
             var result = iConditionService.Update(id, conditionVM);

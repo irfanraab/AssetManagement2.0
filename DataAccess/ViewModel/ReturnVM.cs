@@ -19,6 +19,18 @@ namespace DataAccess.ViewModel
             this.Condition_Id = condition_Id;
         }
 
+        public void Update(int id, int quantity, string description, DateTimeOffset date_Return, int user_Id, int item_Id, int typeItem_Id, int condition_Id)
+        {
+            this.Id = id;
+            this.Quantity = quantity;
+            this.Description = description;
+            this.Date_Return = date_Return;
+            this.User_Id = user_Id;
+            this.Item_Id = item_Id;
+            this.TypeItem_Id = typeItem_Id;
+            this.Condition_Id = condition_Id;
+        }
+
         public ReturnVM() { }
 
         public int Id { get; set; }

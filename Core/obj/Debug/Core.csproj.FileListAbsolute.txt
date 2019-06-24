@@ -27,6 +27,7 @@ C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\Entit
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\EntityFramework.xml
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.csprojAssemblyReference.cache
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.csproj.CopyComplete
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\Core\obj\Debug\Core.exe

@@ -33,7 +33,7 @@ namespace API.Controllers
             var result = iHandoverService.Get();
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
@@ -46,13 +46,13 @@ namespace API.Controllers
             var result = iHandoverService.Get(id);
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
 
         // PUT: api/Handovers/5
-        public HttpResponseMessage UpdateHandover(int id, HandoverVM handoverVM)
+        public HttpResponseMessage PutHandover(int id, HandoverVM handoverVM)
         {
             var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
             var result = iHandoverService.Update(id, handoverVM);

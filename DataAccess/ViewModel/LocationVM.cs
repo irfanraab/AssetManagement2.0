@@ -16,6 +16,13 @@ namespace DataAccess.ViewModel
             this.Floor = floor;
         }
 
+        public void Update(int id, string name_Location, string floor)
+        {
+            this.Id = id;
+            this.Name_Location = name_Location;
+            this.Floor = floor;
+        }
+
         public int Id { get; set; }
         public string Name_Location { get; set; }
         public string Floor { get; set; }

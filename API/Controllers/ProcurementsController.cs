@@ -31,7 +31,7 @@ namespace API.Controllers
             var result = iProcurementService.Get();
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
@@ -43,13 +43,13 @@ namespace API.Controllers
             var result = iProcurementService.Get(id);
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
 
         // PUT: api/Procurements/5
-        public HttpResponseMessage UpdateProcurement(int id, ProcurementVM procurementVM)
+        public HttpResponseMessage PutProcurement(int id, ProcurementVM procurementVM)
         {
             var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
             var result = iProcurementService.Update(id, procurementVM);

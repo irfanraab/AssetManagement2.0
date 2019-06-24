@@ -31,7 +31,7 @@ namespace API.Controllers
             var result = iTypeItemService.Get();
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
@@ -43,19 +43,19 @@ namespace API.Controllers
             var result = iTypeItemService.Get(id);
             if (result != null)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             return message;
         }
 
         // PUT: api/TypeItems/5
-        public HttpResponseMessage UpdateTypeItem(int id, TypeItemVM typeItemVM)
+        public HttpResponseMessage PutTypeItem(int id, TypeItemVM typeItemVM)
         {
             var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
             var result = iTypeItemService.Update(id, typeItemVM);
             if (result)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, typeItemVM);
             }
             return message;
         }

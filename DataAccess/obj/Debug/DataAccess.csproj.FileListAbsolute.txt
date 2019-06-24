@@ -50,3 +50,5 @@ C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.exe
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.Migrations.AssetManagementDB1.resources
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.Migrations.AssetManagementDB2.resources

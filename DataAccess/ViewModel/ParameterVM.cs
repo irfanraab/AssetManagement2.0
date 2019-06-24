@@ -16,6 +16,13 @@ namespace DataAccess.ViewModel
             this.Punishment = Punishment;
         }
 
+        public void Update(int id, string name_Validation, string punishment)
+        {
+            this.Id = id;
+            this.Name_Validation = Name_Validation;
+            this.Punishment = Punishment;
+        }
+
         public int Id { get; set; }
         public string Name_Validation { get; set; }
         public string Punishment { get; set; }
