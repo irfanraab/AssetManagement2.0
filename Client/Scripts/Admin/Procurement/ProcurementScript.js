@@ -1,4 +1,11 @@
 ﻿$(document).ready(function () {
+    $(function () {
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
+    });
     LoadIndexProcurement();
     $('#tableProcurement').DataTable({
         "ajax": LoadIndexProcurement()
@@ -18,10 +25,9 @@ function LoadIndexProcurement() {
                 html += '<tr>';
                 html += '<td>' + i + '</td>';
                 html += '<td>' + val.Name_Procurement + '</td>';
-                html += '<td>' + val.Admin + '</td>';
                 html += '<td>' + val.Description + '</td>';
                 html += '<td>' + val.Price + '</td>';
-                html += '<td>' + val.Date_Procurement + '</td>';
+                html += '<td>' + moment(val.Date_Procurement).format("MM/DD/YYYY") + '</td>';
                 html += '<td>' + val.Quantity + '</td>';
                 html += '<td>' + val.Item.Name_Item + '</td>';
                 html += '<td>' + val.TypeItem.Name_TypeItem + '</td>';
@@ -38,7 +44,6 @@ function LoadIndexProcurement() {
 function Save() {
     var procurement = new Object();
     procurement.Name_Procurement = $('#Name').val();
-    procurement.Admin = $('#Admin').val();
     procurement.Description = $('#Description').val();
     procurement.Price = $('#Price').val();
     procurement.Date_Procurement = $('#DateProcurement').val();
@@ -46,8 +51,8 @@ function Save() {
     procurement.Item_Id = $('#Item').val();
     procurement.TypeItem_Id = $('#TypeItem').val();
     $.ajax({
-        url: "/Procurements/InsertOrUpdate/",
-        data: Procurement,
+        url: "/Procurement/InsertOrUpdate/",
+        data: procurement,
         success: function (result) {
             swal({
                 title: "Saved!",
@@ -68,7 +73,6 @@ function Edit() {
     var procurement = new Object();
     procuremetn.Id = $('Id').val();
     procurement.Name_Procurement = $('#Name').val();
-    procurement.Admin = $('#Admin').val();
     procurement.Description = $('#Description').val();
     procurement.Price = $('#Price').val();
     procurement.Date_Procurement = $('#DateProcurement').val();
@@ -76,7 +80,7 @@ function Edit() {
     procurement.Item_Id = $('#Item').val();
     procurement.TypeItem_Id = $('#TypeItem').val();
     $.ajax({
-        url: "/Procurements/InsertOrUpdate/",
+        url: "/Procurement/InsertOrUpdate/",
         data: Procurement,
         success: function (result) {
             swal({
@@ -85,7 +89,7 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Procurements/Index/';
+                    window.location.href = '/Procurement/Index/';
                 });
             LoadIndexProcurement();
             $('#myModal').modal('hide');
@@ -103,10 +107,9 @@ function GetById(Id) {
         success: function (result) {
             $('#Id').val(result.Id);
             $('#Name').val(result.Name_Procurement);
-            $('#Admin').val(result.Admin);
             $('#Description').val(result.Description);
             $('#Price').val(result.Price);
-            $('#DateProcurement').val(result.Date_Procurement);
+            $('#DateProcurement').val(moment(result.Date_Procurement).format('MM/DD/YYYY'));
             $('#Quantity').val(result.Quantity);
             $('#Item').val(result.Item_Id);
             $('#TypeItem').val(result.TypeItem_Id);
@@ -155,7 +158,6 @@ function ClearScreen() {
     $('#DateProcurement').val('');
     $('#Price').val('');
     $('#Description').val('');
-    $('#Admin').val('');
     $('#Name').val('');
     $('#Id').val('');
     $('#Update').hide();
@@ -165,8 +167,6 @@ function ClearScreen() {
 function Validate() {
     if ($('#Name').val() == "" || $('#Name').val() == " ") {
         swal("Oops", "Please Insert Name", "error")
-    } else if ($('#Admin').val() == "" || $('#Admin').val() == " ") {
-        swal("Oops", "Please Insert Admin", "error")
     } else if ($('#Description').val() == "" || $('#Description').val() == " ") {
         swal("Oops", "Please Insert Description", "error")
     } else if ($('#Price').val() == "" || $('#Price').val() == " ") {

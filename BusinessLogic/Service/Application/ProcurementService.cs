@@ -36,11 +36,7 @@ namespace BusinessLogic.Service.Application
 
         public bool Insert(ProcurementVM procurementVM)
         {
-            if (string.IsNullOrWhiteSpace(Convert.ToString(procurementVM.Admin_Id)))
-            {
-                return status;
-            }
-            else if (string.IsNullOrWhiteSpace(procurementVM.Name_Procurement))
+            if (string.IsNullOrWhiteSpace(procurementVM.Name_Procurement))
             {
                 return status;
             }

@@ -7,14 +7,14 @@ namespace DataAccess.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.TB_M_Condition", "Condition_Name", c => c.String());
-            DropColumn("dbo.TB_M_Condition", "Conditon");
+            DropIndex("dbo.TB_M_Item", new[] { "Typeitem_Id" });
+            CreateIndex("dbo.TB_M_Item", "TypeItem_Id");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.TB_M_Condition", "Conditon", c => c.String());
-            DropColumn("dbo.TB_M_Condition", "Condition_Name");
+            DropIndex("dbo.TB_M_Item", new[] { "TypeItem_Id" });
+            CreateIndex("dbo.TB_M_Item", "Typeitem_Id");
         }
     }
 }

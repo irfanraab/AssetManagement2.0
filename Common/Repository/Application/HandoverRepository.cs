@@ -26,8 +26,12 @@ namespace Common.Repository.Application
             var push = new Handover(HandoverVM);
             var getLoaning = myContext.Loanings.Find(HandoverVM.Loaning_Id);
             var getReturn = myContext.Returns.Find(HandoverVM.Return_Id);
+            var getItem = myContext.Items.Find(HandoverVM.Item_Id);
+            var getTypeItem = myContext.TypeItems.Find(HandoverVM.TypeItem_Id);
             push.Loaning = getLoaning;
             push.Return = getReturn;
+            push.Item = getItem;
+            push.TypeItem = getTypeItem;
             myContext.Handovers.Add(push);
             var result = myContext.SaveChanges();
             if (result > 0)
@@ -63,8 +67,12 @@ namespace Common.Repository.Application
             var get = Get(id);
             var getLoaning = myContext.Loanings.Find(HandoverVM.Loaning_Id);
             var getReturn = myContext.Returns.Find(HandoverVM.Return_Id);
+            var getItem = myContext.Items.Find(HandoverVM.Item_Id);
+            var getTypeItem = myContext.TypeItems.Find(HandoverVM.TypeItem_Id);
             get.Loaning = getLoaning;
             get.Return = getReturn;
+            get.Item = getItem;
+            get.TypeItem = getTypeItem;
             if (get != null)
             {
                 get.Update(id, HandoverVM);

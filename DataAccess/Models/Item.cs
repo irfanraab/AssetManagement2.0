@@ -23,7 +23,7 @@ namespace DataAccess.Models
         public double Price { get; set; }
 
         [ForeignKey("TypeItem")]
-        public int Typeitem_Id { get; set; }
+        public int TypeItem_Id { get; set; }
         public TypeItem TypeItem { get; set; }
 
         [ForeignKey("Location")]

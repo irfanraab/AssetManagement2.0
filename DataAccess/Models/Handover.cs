@@ -15,8 +15,15 @@ namespace DataAccess.Models
         public string Description { get; set; }
         public DateTimeOffset Date_Handover { get; set; }
         public int? User_Id { get; set; }
-        public int? Admin_Id { get; set; }
         public int? Divhead_Id { get; set; }
+
+        [ForeignKey("TypeItem")]
+        public int TypeItem_Id { get; set; }
+        public TypeItem TypeItem { get; set; }
+
+        [ForeignKey("Item")]
+        public int Item_Id { get; set; }
+        public Item Item { get; set; }
 
         [ForeignKey("Loaning")]
         public int Loaning_Id { get; set; }
@@ -30,9 +37,8 @@ namespace DataAccess.Models
         
         public Handover(HandoverVM HandoverVM)
         {
-            this.Description = HandoverVM.Descriptioan;
+            this.Description = HandoverVM.Description;
             this.Date_Handover = HandoverVM.Date_Handover;
-            this.User_Id = HandoverVM.User_Id;
             this.User_Id = HandoverVM.User_Id;
             this.Divhead_Id = HandoverVM.Divhead_Id;
             this.CreateDate = DateTimeOffset.Now.ToLocalTime();
@@ -40,9 +46,8 @@ namespace DataAccess.Models
 
         public void Update(int id, HandoverVM HandoverVM)
         {
-            this.Description = HandoverVM.Descriptioan;
+            this.Description = HandoverVM.Description;
             this.Date_Handover = HandoverVM.Date_Handover;
-            this.User_Id = HandoverVM.User_Id;
             this.User_Id = HandoverVM.User_Id;
             this.Divhead_Id = HandoverVM.Divhead_Id;
             this.UpdateDate = DateTimeOffset.Now.ToLocalTime();

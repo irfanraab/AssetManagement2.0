@@ -70,7 +70,7 @@ namespace API.Controllers
             var result = iHandoverService.Insert(handoverVM);
             if (result)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.Created);
             }
             return message;
         }

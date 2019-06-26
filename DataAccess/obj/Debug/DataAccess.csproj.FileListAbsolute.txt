@@ -44,11 +44,9 @@ C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\bin\Debug
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
-C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.Migrations.AssetManagementDB.resources
-C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.cache
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.exe
 C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.pdb
-C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.Migrations.AssetManagementDB1.resources
-C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.Migrations.AssetManagementDB2.resources
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.Migrations.AssetManagementDB.resources
+C:\Users\Irfan\Desktop\Bootcamp MII\Git2\AssetManagement2.0\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.cache

@@ -7,13 +7,13 @@ namespace DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AssetManagementDB2 : IMigrationMetadata
+    public sealed partial class AssetManagementDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AssetManagementDB2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AssetManagementDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201906231524430_AssetManagementDB2"; }
+            get { return "201906250930558_AssetManagementDB"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,4 +1,11 @@
 ﻿$(document).ready(function () {
+    $(function () {
+        $(".datepicker").datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+        });
+    });
     LoadIndexItem();
     $('#tableItem').DataTable({
         "ajax": LoadIndexItem()
@@ -21,7 +28,7 @@ function LoadIndexItem() {
                 html += '<td>' + val.Merk + '</td>';
                 html += '<td>' + val.Description + '</td>';
                 html += '<td>' + val.Photo_Item + '</td>';
-                html += '<td>' + val.Year_Procurement + '</td>';
+                html += '<td>' + moment(val.Year_Procurement).format("MM/DD/YYYY") + '</td>';
                 html += '<td>' + val.Stock + '</td>';
                 html += '<td>' + val.Price + '</td>';
                 html += '<td>' + val.TypeItem.Name_TypeItem + '</td>';
@@ -51,7 +58,7 @@ function Save() {
     item.Condition_Id = $('#Condition').val();
     $.ajax({
         url: "/Items/InsertOrUpdate/",
-        data: Item,
+        data: item,
         success: function (result) {
             swal({
                 title: "Saved!",
@@ -83,7 +90,7 @@ function Edit() {
     item.Condition_Id = $('#Condition').val();
     $.ajax({
         url: "/Items/InsertOrUpdate/",
-        data: Item,
+        data: item,
         success: function (result) {
             swal({
                 title: "Saved!",
@@ -101,18 +108,17 @@ function Edit() {
 };
 
 function GetById(Id) {
+    $('#myModal').modal('show');
     $.ajax({
         url: "/Items/GetById/",
-        type: "GET",
-        dataType: "json",
-        data: { id: Id },
+        data: { Id: Id },
         success: function (result) {
             $('#Id').val(result.Id);
-            $('#Name').val(result.Name);
+            $('#Name').val(result.Name_Item);
             $('#Merk').val(result.Merk);
             $('#Description').val(result.Description);
             $('#PhotoItem').val(result.Photo_Item);
-            $('#YearProcurement').val(result.Year_Procurement);
+            $('#YearProcurement').val(moment(result.Year_Procurement).format('MM/DD/YYYY'));
             $('#Stock').val(result.Stock);
             $('#Price').val(result.Price);
             $('#TypeItem').val(result.TypeItem_Id);

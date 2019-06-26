@@ -26,8 +26,10 @@ namespace Common.Repository.Application
             var push = new Item(itemVM);
             var getTypeItem = myContext.TypeItems.Find(itemVM.TypeItem_Id);
             var getLocation = myContext.Locations.Find(itemVM.Location_Id);
+            var getCondition = myContext.Conditions.Find(itemVM.Condition_Id);
             push.TypeItem = getTypeItem;
             push.Location = getLocation;
+            push.Condition = getCondition;
             myContext.Items.Add(push);
             var result = myContext.SaveChanges();
             if (result > 0)
@@ -47,8 +49,10 @@ namespace Common.Repository.Application
             var get = Get(id);
             var getTypeItem = myContext.TypeItems.Find(itemVM.TypeItem_Id);
             var getLocation = myContext.Locations.Find(itemVM.Location_Id);
+            var getCondition = myContext.Conditions.Find(itemVM.Condition_Id);
             get.TypeItem = getTypeItem;
             get.Location = getLocation;
+            get.Condition = getCondition;
             if (get != null)
             {
                 get.Update(id, itemVM);
@@ -94,7 +98,7 @@ namespace Common.Repository.Application
 
         public List<Item> Get()
         {
-            var get = myContext.Items.Include("TypeItem").Include("Location").Include("Condition").Where(x => x.Typeitem_Id == x.TypeItem.Id && x.Location_Id == x.Location.Id /*&& x.Condition_Id == x.Condition.Id*/ && x.IsDelete == false).ToList();
+            var get = myContext.Items.Include("TypeItem").Include("Location").Include("Condition").Where(x => x.TypeItem_Id == x.TypeItem.Id && x.Location_Id == x.Location.Id && x.Condition_Id == x.Condition.Id && x.IsDelete == false).ToList();
             return get;
         }
     }

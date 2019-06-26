@@ -65,7 +65,7 @@ namespace Client.Controllers
 
         public JsonResult GetById(int id)
         {
-            ItemVM ItemVM = null;
+            Item itemVM = null;
             var client = new HttpClient();
             client.BaseAddress = new Uri(get.link);
             var responseTask = client.GetAsync("Items/" + id);
@@ -73,15 +73,15 @@ namespace Client.Controllers
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
             {
-                var readTask = result.Content.ReadAsAsync<ItemVM>();
+                var readTask = result.Content.ReadAsAsync<Item>();
                 readTask.Wait();
-                ItemVM = readTask.Result;
+                itemVM = readTask.Result;
             }
             else
             {
                 // try to find something
             }
-            return Json(ItemVM, JsonRequestBehavior.AllowGet);
+            return Json(itemVM, JsonRequestBehavior.AllowGet);
         }
 
         public void Delete(int id)

@@ -12,83 +12,83 @@ using System.Web.Mvc;
 
 namespace Client.Controllers
 {
-    public class ParametersController : Controller
+    public class HandoversController : Controller
     {
         BaseLink get = new BaseLink();
-        // GET: Locations
+        // GET: Handovers
         public ActionResult Index()
         {
-            return View(LoadParameter());
+            return View(LoadHandover());
         }
 
-        public JsonResult LoadParameter()
+        public JsonResult LoadHandover()
         {
-            IEnumerable<Parameter> parameterVM = null;
+            IEnumerable<Handover> handoverVM = null;
             var client = new HttpClient
             {
                 BaseAddress = new Uri(get.link)
             };
-            var responseTask = client.GetAsync("Parameters");
+            var responseTask = client.GetAsync("Handovers");
             responseTask.Wait();
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
             {
-                var readTask = result.Content.ReadAsAsync<IList<Parameter>>();
+                var readTask = result.Content.ReadAsAsync<IList<Handover>>();
                 readTask.Wait();
-                parameterVM = readTask.Result;
+                handoverVM = readTask.Result;
             }
             else
             {
-                parameterVM = Enumerable.Empty<Parameter>();
+                handoverVM = Enumerable.Empty<Handover>();
                 ModelState.AddModelError(string.Empty, "Server error");
             }
-            return Json(parameterVM, JsonRequestBehavior.AllowGet);
+            return Json(handoverVM, JsonRequestBehavior.AllowGet);
         }
 
-        public void InsertOrUpdate(ParameterVM parameterVM)
+        public void InsertOrUpdate(Handover handoverVM)
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri(get.link);
-            var myContent = JsonConvert.SerializeObject(parameterVM);
+            var myContent = JsonConvert.SerializeObject(handoverVM);
             var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            if (parameterVM.Id.Equals(0))
+            if (handoverVM.Id.Equals(0))
             {
-                var result = client.PostAsync("Parameters", byteContent).Result;
+                var result = client.PostAsync("Handovers", byteContent).Result;
             }
             else
             {
-                var result = client.PutAsync("Parameters/" + parameterVM.Id, byteContent).Result;
+                var result = client.PutAsync("Handovers/" + handoverVM.Id, byteContent).Result;
             }
         }
 
         public JsonResult GetById(int id)
         {
-            ParameterVM parameterVM = null;
+            Handover handoverVM = null;
             var client = new HttpClient();
             client.BaseAddress = new Uri(get.link);
-            var responseTask = client.GetAsync("Parameters/" + id);
+            var responseTask = client.GetAsync("Handovers/" + id);
             responseTask.Wait();
             var result = responseTask.Result;
             if (result.IsSuccessStatusCode)
             {
-                var readTask = result.Content.ReadAsAsync<ParameterVM>();
+                var readTask = result.Content.ReadAsAsync<Handover>();
                 readTask.Wait();
-                parameterVM = readTask.Result;
+                handoverVM = readTask.Result;
             }
             else
             {
                 // try to find something
             }
-            return Json(parameterVM, JsonRequestBehavior.AllowGet);
+            return Json(handoverVM, JsonRequestBehavior.AllowGet);
         }
 
         public void Delete(int id)
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri(get.link);
-            var result = client.DeleteAsync("Parameters/" + id).Result;
+            var result = client.DeleteAsync("Handovers/" + id).Result;
         }
     }
 }

@@ -52,7 +52,7 @@ namespace BusinessLogic.Service.Application
             {
                 return status;
             }
-            else if (string.IsNullOrWhiteSpace(itemVM.Condition))
+            else if (string.IsNullOrWhiteSpace(Convert.ToString(itemVM.Condition_Id)))
             {
                 return status;
             }

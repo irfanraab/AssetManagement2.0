@@ -37,7 +37,7 @@ namespace BusinessLogic.Service.Application
 
         public bool Insert(HandoverVM handoverVM)
         {
-            if (string.IsNullOrWhiteSpace(Convert.ToString(handoverVM.Descriptioan)))
+            if (string.IsNullOrWhiteSpace(handoverVM.Description))
             {
                 return status;
             }
@@ -45,7 +45,11 @@ namespace BusinessLogic.Service.Application
             {
                 return status;
             }
-            else if (string.IsNullOrWhiteSpace(Convert.ToString(handoverVM.Admin_id)))
+            else if (string.IsNullOrWhiteSpace(Convert.ToString(handoverVM.TypeItem_Id)))
+            {
+                return status;
+            }
+            else if (string.IsNullOrWhiteSpace(Convert.ToString(handoverVM.Item_Id)))
             {
                 return status;
             }

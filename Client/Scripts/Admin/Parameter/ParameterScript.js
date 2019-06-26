@@ -19,8 +19,8 @@ function LoadIndexParameter() {
                 html += '<td>' + i + '</td>';
                 html += '<td>' + val.Name_Validation + '</td>';
                 html += '<td>' + val.Punishment + '</td>';
-                html += '<td>' + '<a href="#" class="fa fa-pencil" onclick=return GetById(' + val.Id + ')">Edit</a>';
-                html += ' | <a href="#" class="fa fa-trash" onclick=return Delete(' + val.Id + ')">Delete</a></td>';
+                html += '<td>' + '<a href="#" class="fa fa-pencil" onclick="return GetById(' + val.Id + ')">Edit</a>';
+                html += ' | <a href="#" class="fa fa-trash" onclick="return Delete(' + val.Id + ')">Delete</a></td>';
                 html += '</tr>';
                 i++;
             });
@@ -67,7 +67,7 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Punishments/Index/';
+                    window.location.href = '/Parameters/Index/';
                 });
             LoadIndexParameter();
             $('#myModal').modal('hide');
@@ -114,7 +114,7 @@ function Delete(Id) {
                     type: "success"
                 },
                     function () {
-                        window.location.href = '/Punishments/Index/';
+                        window.location.href = '/Parameters/Index/';
                     });
             },
             error: function (response) {

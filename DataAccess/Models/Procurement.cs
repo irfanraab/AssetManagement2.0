@@ -14,7 +14,6 @@ namespace DataAccess.Models
     {
         public Procurement() { }
 
-        public int? Admin_Id { get; set; }
         public string Name_Procurement { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
