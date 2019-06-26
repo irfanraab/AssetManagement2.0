@@ -101,5 +101,20 @@ namespace Common.Repository.Application
             var get = myContext.Items.Include("TypeItem").Include("Location").Include("Condition").Where(x => x.TypeItem_Id == x.TypeItem.Id && x.Location_Id == x.Location.Id && x.Condition_Id == x.Condition.Id && x.IsDelete == false).ToList();
             return get;
         }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return myContext.TypeItems.Where(x => x.IsDelete == false && x.Name_TypeItem.Contains(modulQuery)).ToList();
+        }
+
+        public List<Location> GetLocationByModule(string modulQuery)
+        {
+            return myContext.Locations.Where(x => x.IsDelete == false && x.Name_Location.Contains(modulQuery)).ToList();
+        }
+
+        public List<Condition> GetConditionByModule(string moduleQuery)
+        {
+            return myContext.Conditions.Where(x => x.IsDelete == false && x.Condition_Name.Contains(moduleQuery)).ToList();
+        }
     }
 }

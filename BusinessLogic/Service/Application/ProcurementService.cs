@@ -93,5 +93,15 @@ namespace BusinessLogic.Service.Application
                 return iProcurementRepository.Delete(id);
             }
         }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return iProcurementRepository.GetTypeItemByModule(modulQuery);
+        }
+
+        public List<Item> GetItemByModule(string modulQuery)
+        {
+            return iProcurementRepository.GetItemByModule(modulQuery);
+        }
     }
 }

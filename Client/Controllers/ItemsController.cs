@@ -90,5 +90,82 @@ namespace Client.Controllers
             client.BaseAddress = new Uri(get.link);
             var result = client.DeleteAsync("Items/" + id).Result;
         }
+
+        //DropDown
+
+        public JsonResult GetTypeItemProject()
+        {
+            IEnumerable<TypeItem> typeItem = null;
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(get.link)
+            };
+            var responseTask = client.GetAsync("TypeItems");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<TypeItem>>();
+                readTask.Wait();
+                typeItem = readTask.Result;
+            }
+            else
+            {
+                typeItem = Enumerable.Empty<TypeItem>();
+                ModelState.AddModelError(string.Empty, "Server error");
+            }
+
+            return Json(typeItem, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetLocationProject()
+        {
+            IEnumerable<Location> location = null;
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(get.link)
+            };
+            var responseTask = client.GetAsync("Locations");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<Location>>();
+                readTask.Wait();
+                location = readTask.Result;
+            }
+            else
+            {
+                location = Enumerable.Empty<Location>();
+                ModelState.AddModelError(string.Empty, "Server error");
+            }
+
+            return Json(location, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetConditionProject()
+        {
+            IEnumerable<Condition> condition = null;
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(get.link)
+            };
+            var responseTask = client.GetAsync("Conditions");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<Condition>>();
+                readTask.Wait();
+                condition = readTask.Result;
+            }
+            else
+            {
+                condition = Enumerable.Empty<Condition>();
+                ModelState.AddModelError(string.Empty, "Server error");
+            }
+
+            return Json(condition, JsonRequestBehavior.AllowGet);
+        }
     }
 }

@@ -67,10 +67,9 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Locations/Index/';
+                    $('#myModal').modal('hide');
                 });
             LoadIndexLocation();
-            $('#myModal').modal('hide');
             ClearScreen();
         }
     });

@@ -98,5 +98,17 @@ namespace BusinessLogic.Service.Application
                 return iHandoverRepository.Delete(id);
             }
         }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return iHandoverRepository.GetTypeItemByModule(modulQuery);
+
+        }
+
+        public List<Item> GetItemByModule(string modulQuery)
+        {
+            return iHandoverRepository.GetItemByModule(modulQuery);
+
+        }
     }
 }

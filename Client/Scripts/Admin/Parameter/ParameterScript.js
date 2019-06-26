@@ -67,10 +67,9 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Parameters/Index/';
+                    $('#myModal').modal('hide');
                 });
             LoadIndexParameter();
-            $('#myModal').modal('hide');
             ClearScreen();
         }
     });

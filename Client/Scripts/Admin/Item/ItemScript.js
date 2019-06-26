@@ -7,6 +7,9 @@
         });
     });
     LoadIndexItem();
+    LoadLocationProject();
+    LoadConditionProject();
+    LoadTypeItemProject();
     $('#tableItem').DataTable({
         "ajax": LoadIndexItem()
     })
@@ -42,6 +45,60 @@ function LoadIndexItem() {
             $('.tbody').html(html);
         }
     })
+}
+
+function LoadTypeItemProject() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Items/GetTypeItemProject/",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var html = '';
+            $.each(data,
+                function (index, val) {
+                    html += '<option value="' + val.Id + '">' + val.Name_TypeItem + '</option>';
+                });
+            $('#TypeItem').html(html);
+        }
+    });
+}
+
+function LoadLocationProject() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Items/GetLocationProject/",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var html = '';
+            $.each(data,
+                function (index, val) {
+                    html += ' <option value="' + val.Id + '">' + val.Name_Location + '</option>';
+                });
+            $('#Location').html(html);
+        }
+    });
+}
+
+function LoadConditionProject() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Items/GetConditionProject/",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var html = '';
+            $.each(data,
+                function (index, val) {
+                    html += ' <option value="' + val.Id + '">' + val.Condition_Name + '</option>';
+                });
+            $('#Condition').html(html);
+        }
+    });
 }
 
 function Save() {
@@ -98,10 +155,9 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Items/Index/';
+                    $('#myModal').modal('hide');
                 });
             LoadIndexItem();
-            $('#myModal').modal('hide');
             ClearScreen();
         }
     });

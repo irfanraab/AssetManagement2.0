@@ -16,5 +16,7 @@ namespace Common.Repository
         bool Insert(ProcurementVM procurementVM);
         bool Update(int id, ProcurementVM procurementVM);
         bool Delete(int id);
+        List<TypeItem> GetTypeItemByModule(string modulQuery);
+        List<Item> GetItemByModule(string modulQuery);
     }
 }

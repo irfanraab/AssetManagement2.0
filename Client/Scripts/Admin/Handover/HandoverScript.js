@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    LoadItemProject();
+    LoadTypeItemProject();
     LoadIndexHandover();
     $('#tableHandover').DataTable({
         "ajax": LoadIndexHandover()
@@ -35,12 +37,50 @@ function LoadIndexHandover() {
     })
 }
 
+function LoadTypeItemProject() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Handovers/GetTypeItemProject/",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var html = '';
+            $.each(data,
+                function (index, val) {
+                    html += ' <option value="' + val.Id + '">' + val.Name_TypeItem + '</option>';
+                });
+
+            $('#TypeItem').html(html);
+        }
+    });
+}
+
+function LoadItemProject() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Handovers/GetItemProject/",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var html = '';
+            $.each(data,
+                function (index, val) {
+                    html += ' <option value="' + val.Id + '">' + val.Name_Item + '</option>';
+                });
+
+            $('#Item').html(html);
+        }
+    });
+}
+
 function Save() {
     var handover = new Object();
     handover.Loaning_Id = $('#LoaningId').val();
     handover.Return_Id = $('#ReturnId').val();
     handover.User_Id = $('#NameUser').val();
-    handover.DivHead_Id = $('#NameDivHead').val();
+    handover.Divhead_Id = $('#NameDivHead').val();
     handover.TypeItem_Id = $('#TypeItem').val();
     handover.Item_Id = $('#Item').val();
     handover.Description = $('#Description').val();
@@ -69,7 +109,7 @@ function Edit() {
     handover.Loaning_Id = $('#LoaningId').val();
     handover.Return_Id = $('#ReturnId').val();
     handover.User_Id = $('#NameUser').val();
-    handover.DivHead_Id = $('#NameDivHead').val();
+    handover.Divhead_Id = $('#NameDivHead').val();
     handover.TypeItem_Id = $('#TypeItem').val();
     handover.Item_Id = $('#Item').val();
     handover.Description = $('#Description').val();
@@ -83,10 +123,9 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Handovers/Index/';
+                    $('#myModal').modal('hide');
                 });
             LoadIndexHandover();
-            $('#myModal').modal('hide');
             ClearScreen();
         }
     });
@@ -101,7 +140,7 @@ function GetById(Id) {
             $('#LoaningId').val(result.Loaning_Id);
             $('#ReturnId').val(result.Return_Id);
             $('#NameUser').val(result.User_Id);
-            $('#NameDivHead').val(result.DivHead_Id);
+            $('#NameDivHead').val(result.Divhead_Id);
             $('#TypeItem').val(result.TypeItem_Id);
             $('#Item').val(result.Item_Id);
             $('#Description').val(result.Description);

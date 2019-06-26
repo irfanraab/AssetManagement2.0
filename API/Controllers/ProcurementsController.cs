@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Results;
 using BusinessLogic.Service;
 using DataAccess.Context;
 using DataAccess.Models;
@@ -82,6 +83,37 @@ namespace API.Controllers
                 message = Request.CreateResponse(HttpStatusCode.OK);
             }
             return message;
+        }
+
+        // DropDown
+        public HttpResponseMessage GetItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iProcurementService.GetItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
+        }
+
+        public HttpResponseMessage GetTypeItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iProcurementService.GetTypeItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
         }
     }
 }

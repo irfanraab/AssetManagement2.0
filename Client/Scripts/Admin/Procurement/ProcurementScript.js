@@ -7,6 +7,8 @@
         });
     });
     LoadIndexProcurement();
+    LoadTypeItemProject();
+    LoadItemProject();
     $('#tableProcurement').DataTable({
         "ajax": LoadIndexProcurement()
     })
@@ -41,6 +43,42 @@ function LoadIndexProcurement() {
     })
 }
 
+function LoadTypeItemProject() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Procurement/GetTypeItemProject/",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var html = '';
+            $.each(data,
+                function (index, val) {
+                    html += '<option value="' + val.Id + '">' + val.Name_TypeItem + '</option>';
+                });
+            $('#TypeItem').html(html);
+        }
+    });
+}
+
+function LoadItemProject() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Procurement/GetItemProject/",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            var html = '';
+            $.each(data,
+                function (index, val) {
+                    html += '<option value="' + val.Id + '">' + val.Name_Item + '</option>';
+                });
+            $('#Item').html(html);
+        }
+    });
+}
+
 function Save() {
     var procurement = new Object();
     procurement.Name_Procurement = $('#Name').val();
@@ -60,7 +98,7 @@ function Save() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Procurements/Index/';
+                    window.location.href = '/Procurement/Index/';
                 });
             LoadIndexProcurement();
             $('#myModal').modal('hide');
@@ -71,7 +109,7 @@ function Save() {
 
 function Edit() {
     var procurement = new Object();
-    procuremetn.Id = $('Id').val();
+    procurement.Id = $('#Id').val();
     procurement.Name_Procurement = $('#Name').val();
     procurement.Description = $('#Description').val();
     procurement.Price = $('#Price').val();
@@ -81,7 +119,7 @@ function Edit() {
     procurement.TypeItem_Id = $('#TypeItem').val();
     $.ajax({
         url: "/Procurement/InsertOrUpdate/",
-        data: Procurement,
+        data: procurement,
         success: function (result) {
             swal({
                 title: "Saved!",
@@ -89,10 +127,9 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Procurement/Index/';
+                    $('#myModal').modal('hide');
                 });
             LoadIndexProcurement();
-            $('#myModal').modal('hide');
             ClearScreen();
         }
     });
@@ -101,7 +138,6 @@ function Edit() {
 function GetById(Id) {
     $.ajax({
         url: "/Procurement/GetById/",
-        type: "GET",
         dataType: "json",
         data: { id: Id },
         success: function (result) {
@@ -111,8 +147,8 @@ function GetById(Id) {
             $('#Price').val(result.Price);
             $('#DateProcurement').val(moment(result.Date_Procurement).format('MM/DD/YYYY'));
             $('#Quantity').val(result.Quantity);
-            $('#Item').val(result.Item_Id);
             $('#TypeItem').val(result.TypeItem_Id);
+            $('#Item').val(result.Item_Id);
 
             $('#myModal').modal('show');
             $('#Update').show();
@@ -141,7 +177,7 @@ function Delete(Id) {
                     type: "success"
                 },
                     function () {
-                        window.location.href = '/Procurements/Index/';
+                        window.location.href = '/Procurement/Index/';
                     });
             },
             error: function (response) {
@@ -175,11 +211,11 @@ function Validate() {
         swal("Oops", "Please Insert Date Procurement", "error")
     } else if ($('#Quantity').val() == "" || $('#Quantity').val() == " ") {
         swal("Oops", "Please Insert Quantity", "error")
-    } else if ($('#Item').val() == "" || $('#Item').val() == " ") {
-        swal("Oops", "Please Insert Price", "error")
     } else if ($('#TypeItem').val() == "" || $('#TypeItem').val() == " ") {
         swal("Oops", "Please Insert Type Item", "error")
-    } else if ($('#Id').val() == "") {
+    } else if ($('#Item').val() == "" || $('#Item').val() == " ") {
+        swal("Oops", "Please Insert Item", "error")
+    } else if ($('#Id').val() == "" || $('#Id').val() == " ") {
         Save();
     } else {
         Edit();

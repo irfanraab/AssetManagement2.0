@@ -90,5 +90,56 @@ namespace Client.Controllers
             client.BaseAddress = new Uri(get.link);
             var result = client.DeleteAsync("Handovers/" + id).Result;
         }
+
+        // DropDown
+        public JsonResult GetTypeItemProject()
+        {
+            IEnumerable<TypeItem> typeItem = null;
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(get.link)
+            };
+            var responseTask = client.GetAsync("TypeItems");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<TypeItem>>();
+                readTask.Wait();
+                typeItem = readTask.Result;
+            }
+            else
+            {
+                typeItem = Enumerable.Empty<TypeItem>();
+                ModelState.AddModelError(string.Empty, "Server error");
+            }
+
+            return Json(typeItem, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetItemProject()
+        {
+            IEnumerable<Item> item = null;
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri(get.link)
+            };
+            var responseTask = client.GetAsync("Items");
+            responseTask.Wait();
+            var result = responseTask.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<Item>>();
+                readTask.Wait();
+                item = readTask.Result;
+            }
+            else
+            {
+                item = Enumerable.Empty<Item>();
+                ModelState.AddModelError(string.Empty, "Server error");
+            }
+
+            return Json(item, JsonRequestBehavior.AllowGet);
+        }
     }
 }

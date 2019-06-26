@@ -64,10 +64,9 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/Conditions/Index/';
+                    $('#myModal').modal('hide');
                 });
             LoadIndexCondition();
-            $('#myModal').modal('hide');
             ClearScreen();
         } 
     });

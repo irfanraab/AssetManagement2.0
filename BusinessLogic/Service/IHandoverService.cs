@@ -16,5 +16,7 @@ namespace BusinessLogic.Service
         bool Insert(HandoverVM handoverVM);
         bool Update(int id, HandoverVM handoverVM);
         bool Delete(int id);
+        List<TypeItem> GetTypeItemByModule(string modulQuery);
+        List<Item> GetItemByModule(string modulQuery);
     }
 }

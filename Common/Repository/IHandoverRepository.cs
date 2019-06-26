@@ -15,5 +15,7 @@ namespace Common.Repository
         bool Insert(HandoverVM HandoverVM);
         bool Update(int id, HandoverVM HandoverVM);
         bool Delete(int id);
+        List<TypeItem> GetTypeItemByModule(string modulQuery);
+        List<Item> GetItemByModule(string modulQuery);
     }
 }

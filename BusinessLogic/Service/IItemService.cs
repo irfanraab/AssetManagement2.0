@@ -16,5 +16,8 @@ namespace BusinessLogic.Service
         bool Insert(ItemVM itemVM);
         bool Update(int id, ItemVM itemVM);
         bool Delete(int id);
+        List<TypeItem> GetTypeItemByModule(string modulQuery);
+        List<Location> GetLocationByModule(string modulQuery);
+        List<Condition> GetConditionByModule(string modulQuery);
     }
 }

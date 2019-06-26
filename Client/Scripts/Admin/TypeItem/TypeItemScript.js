@@ -64,10 +64,9 @@ function Edit() {
                 type: "success"
             },
                 function () {
-                    window.location.href = '/TypeItems/Index/';
+                    $('#myModal').modal('hide');
                 });
             LoadIndexTypeItem();
-            $('#myModal').modal('hide');
             ClearScreen();
         }
     });

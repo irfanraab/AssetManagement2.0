@@ -86,7 +86,40 @@ namespace API.Controllers
                 message = Request.CreateResponse(HttpStatusCode.OK);
             }
             return message;
-
         }
+
+        // DropDown
+        public HttpResponseMessage GetTypeItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iHandoverService.GetItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
+        }
+
+        public HttpResponseMessage GetItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iHandoverService.GetItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
+        }
+
+
+
     }
 }

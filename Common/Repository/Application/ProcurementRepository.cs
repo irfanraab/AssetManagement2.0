@@ -96,5 +96,14 @@ namespace Common.Repository.Application
             return get;
         }
 
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return myContext.TypeItems.Where(x => x.IsDelete == false && x.Name_TypeItem.Contains(modulQuery)).ToList();
+        }
+
+        public List<Item> GetItemByModule(string modulQuery)
+        {
+            return myContext.Items.Where(x => x.IsDelete == false && x.Name_Item.Contains(modulQuery)).ToList();
+        }
     }
 }

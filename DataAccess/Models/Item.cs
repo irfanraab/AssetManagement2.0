@@ -55,6 +55,9 @@ namespace DataAccess.Models
             this.Year_Procurement = itemVM.Year_Procurement;
             this.Stock = itemVM.Stock;
             this.Price = itemVM.Price;
+            this.Condition_Id = itemVM.Condition_Id;
+            this.TypeItem_Id = itemVM.TypeItem_Id;
+            this.Location_Id = itemVM.Location_Id;
             this.UpdateDate = DateTimeOffset.Now.ToLocalTime();
         }
 

@@ -105,5 +105,20 @@ namespace BusinessLogic.Service.Application
                 return iItemRepository.Delete(id);
             }
         }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return iItemRepository.GetTypeItemByModule(modulQuery);
+        }
+
+        public List<Location> GetLocationByModule(string modulQuery)
+        {
+            return iItemRepository.GetLocationByModule(modulQuery);
+        }
+
+        public List<Condition> GetConditionByModule(string modulQuery)
+        {
+            return iItemRepository.GetConditionByModule(modulQuery);
+        }
     }
 }

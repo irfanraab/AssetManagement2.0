@@ -34,9 +34,6 @@ namespace DataAccess.ViewModel
             this.Year_Procurement = year_Procurement;
             this.Stock = stock;
             this.Price = price;
-            this.TypeItem_Id = typeItem_Id;
-            this.Location_Id = location_Id;
-            this.Condition_Id = condition_Id;
         }
 
         public int Id { get; set; }
