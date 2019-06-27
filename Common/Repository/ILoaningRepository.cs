@@ -12,6 +12,8 @@ namespace Common.Repository
     {
         List<Loaning> Get();
         List<Loaning> GetSearch(string values);
+        List<Item> GetItemByModule(string modulQuery);
+        List<TypeItem> GetTypeItemByModule(string modulQuery);
         Loaning Get(int id);
         bool Insert(LoaningVM loaningVM);
         bool Update(int id, LoaningVM loaningVM);

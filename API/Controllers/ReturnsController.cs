@@ -84,5 +84,50 @@ namespace API.Controllers
             }
             return message;
         }
+
+        public HttpResponseMessage GetTypeItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iReturnService.GetTypeItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
+        }
+
+        public HttpResponseMessage GetItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iReturnService.GetItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
+        }
+
+        public HttpResponseMessage GetConditionByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iReturnService.GetConditionByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
+        }
     }
 }

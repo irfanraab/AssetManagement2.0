@@ -19,11 +19,6 @@ namespace BusinessLogic.Service.Application
             iReturnRepository = _iReturnRepository;
         }
 
-        public List<Return> Get()
-        {
-            return iReturnRepository.Get();
-        }
-
         public Return Get(int id)
         {
             return iReturnRepository.Get(id);
@@ -47,10 +42,39 @@ namespace BusinessLogic.Service.Application
             {
                 return status;
             }
+            else if (string.IsNullOrWhiteSpace(Convert.ToString(returnVM.TypeItem_Id)))
+            {
+                return status;
+            }
+            else if (string.IsNullOrWhiteSpace(Convert.ToString(returnVM.Condition_Id)))
+            {
+                return status;
+            }
+            else if (string.IsNullOrWhiteSpace(returnVM.Description))
+            {
+                return status;
+            }
             else
             {
                 return iReturnRepository.Insert(returnVM);
             }
+        }
+
+        public bool Delete(int id)
+        {
+            if (string.IsNullOrWhiteSpace(id.ToString()))
+            {
+                return status;
+            }
+            else
+            {
+                return iReturnRepository.Delete(id);
+            }
+        }
+
+        public List<Return> Get()
+        {
+            return iReturnRepository.Get();
         }
 
         public bool Update(int id, ReturnVM returnVM)
@@ -65,16 +89,19 @@ namespace BusinessLogic.Service.Application
             }
         }
 
-        public bool Delete(int id)
+        public List<Item> GetItemByModule(string modulQuery)
         {
-            if (string.IsNullOrWhiteSpace(id.ToString()))
-            {
-                return status;
-            }
-            else
-            {
-                return iReturnRepository.Delete(id);
-            }
+            return iReturnRepository.GetItemByModule(modulQuery);
+        }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return iReturnRepository.GetTypeItemByModule(modulQuery);
+        }
+
+        public List<Condition> GetConditionByModule(string modulQuery)
+        {
+            return iReturnRepository.GetConditionByModule(modulQuery);
         }
     }
 }

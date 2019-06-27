@@ -56,6 +56,10 @@ namespace BusinessLogic.Service.Application
             {
                 return status;
             }
+            else if (string.IsNullOrWhiteSpace(Convert.ToString(loaningVM.Quantity)))
+            {
+                return status;
+            }
             else
             {
                 return iLoaningRepository.Insert(loaningVM);
@@ -84,6 +88,16 @@ namespace BusinessLogic.Service.Application
             {
                 return iLoaningRepository.Delete(id);
             }
+        }
+
+        public List<Item> GetItemByModule(string modulQuery)
+        {
+            return iLoaningRepository.GetItemByModule(modulQuery);
+        }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return iLoaningRepository.GetTypeItemByModule(modulQuery);
         }
     }
 }

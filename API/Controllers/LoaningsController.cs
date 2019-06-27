@@ -40,7 +40,7 @@ namespace API.Controllers
         // GET: api/Loanings/5
         public HttpResponseMessage GetLoaning(int id)
         {
-            var message = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request");
+            var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "Not Found");
             var result = iLoaningService.Get(id);
             if (result != null)
             {
@@ -56,7 +56,7 @@ namespace API.Controllers
             var result = iLoaningService.Update(id, loaningVM);
             if (result)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, "Update SUccesfully");
             }
             return message;
         }
@@ -68,7 +68,7 @@ namespace API.Controllers
             var result = iLoaningService.Insert(loaningVM);
             if (result)
             {
-                message = Request.CreateResponse(HttpStatusCode.Created);
+                message = Request.CreateResponse(HttpStatusCode.Created, "Insert Succesfully");
             }
             return message;
         }
@@ -80,9 +80,38 @@ namespace API.Controllers
             var result = iLoaningService.Delete(id);
             if (result)
             {
-                message = Request.CreateResponse(HttpStatusCode.OK);
+                message = Request.CreateResponse(HttpStatusCode.OK, "Delete Succesfully");
             }
             return message;
+        }
+        public HttpResponseMessage GetTypeItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iLoaningService.GetTypeItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
+        }
+
+        public HttpResponseMessage GetItemByModel(string modelQuery)
+        {
+            try
+            {
+                var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
+                var result = iLoaningService.GetItemByModule(modelQuery);
+                if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
+                return message;
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "500 : Internal Server Error");
+            }
         }
     }
 }

@@ -123,7 +123,7 @@ namespace API.Controllers
             try
             {
                 var message = Request.CreateErrorResponse(HttpStatusCode.NotFound, "404 : Data Not FOund");
-                var result = iItemService.GetLocationByModule(modelQuery);
+                var result = iItemService.GetConditionByModule(modelQuery);
                 if (result != null) message = Request.CreateResponse(HttpStatusCode.OK, result);
                 return message;
             }

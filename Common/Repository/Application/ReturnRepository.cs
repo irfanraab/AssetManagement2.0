@@ -24,8 +24,12 @@ namespace Common.Repository.Application
         public bool Insert(ReturnVM ReturnVM)
         {
             var push = new Return(ReturnVM);
+            var getTypeItem = myContext.TypeItems.Find(ReturnVM.TypeItem_Id);
             var getItem = myContext.Items.Find(ReturnVM.Item_Id);
+            var getCondition = myContext.Conditions.Find(ReturnVM.Condition_Id);
+            push.TypeItem = getTypeItem;
             push.Item = getItem;
+            push.Condition = getCondition;
             myContext.Returns.Add(push);
             var result = myContext.SaveChanges();
             if (result > 0)
@@ -79,6 +83,21 @@ namespace Common.Repository.Application
             {
                 return false;
             }
+        }
+
+        public List<Item> GetItemByModule(string modulQuery)
+        {
+            return myContext.Items.Where(x => x.IsDelete == false && x.Name_Item.Contains(modulQuery)).ToList();
+        }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return myContext.TypeItems.Where(x => x.IsDelete == false && x.Name_TypeItem.Contains(modulQuery)).ToList();
+        }
+
+        public List<Condition> GetConditionByModule(string moduleQuery)
+        {
+            return myContext.Conditions.Where(x => x.IsDelete == false && x.Condition_Name.Contains(moduleQuery)).ToList();
         }
     }
 }

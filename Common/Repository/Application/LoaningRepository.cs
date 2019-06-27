@@ -94,5 +94,15 @@ namespace Common.Repository.Application
             var get = myContext.Loanings.Include("Item").Include("TypeItem").Include("Item.Location").Where(x => x.Item_Id == x.Item.Id && x.TypeItem_Id == x.TypeItem.Id && x.IsDelete == false).ToList();
             return get;
         }
+
+        public List<Item> GetItemByModule(string modulQuery)
+        {
+            return myContext.Items.Where(x => x.IsDelete == false && x.Name_Item.Contains(modulQuery)).ToList();
+        }
+
+        public List<TypeItem> GetTypeItemByModule(string modulQuery)
+        {
+            return myContext.TypeItems.Where(x => x.IsDelete == false && x.Name_TypeItem.Contains(modulQuery)).ToList();
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace DataAccess.Models
 
         public void Update(int id, ConditionVM conditionVM)
         {
+            this.Id = id;
             this.Condition_Name = conditionVM.Condition_Name;
         }
 
