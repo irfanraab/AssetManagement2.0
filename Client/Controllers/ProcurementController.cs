@@ -16,7 +16,13 @@ namespace Client.Controllers
     {
         BaseLink get = new BaseLink();
         // GET: Procurement
+        [Authorize]
         public ActionResult Index()
+        {
+            return View(LoadProcurement());
+        }
+
+        public ActionResult IndexDivHead()
         {
             return View(LoadProcurement());
         }

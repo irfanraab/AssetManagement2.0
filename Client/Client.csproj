@@ -4069,6 +4069,7 @@
     <Content Include="Content\scss\variable.scss" />
     <Content Include="Content\scss\widgets.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\DivHead\ProcurementDivHead\ProcurementDivHead.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -4122,10 +4123,10 @@
     <Content Include="Views\Procurement\Index.cshtml" />
     <Content Include="Views\TypeItems\Index.cshtml" />
     <Content Include="Views\Handovers\Index.cshtml" />
+    <Content Include="Views\Procurement\IndexDivHead.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\DivHead\" />
     <Folder Include="Scripts\Employee\Loaning\" />
     <Folder Include="Scripts\Employee\Return\" />
   </ItemGroup>

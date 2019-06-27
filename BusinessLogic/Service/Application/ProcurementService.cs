@@ -56,6 +56,10 @@ namespace BusinessLogic.Service.Application
             {
                 return status;
             }
+            else if (string.IsNullOrWhiteSpace(procurementVM.Status))
+            {
+                return status;
+            }
             else if (string.IsNullOrWhiteSpace(Convert.ToString(procurementVM.Item_Id)))
             {
                 return status;

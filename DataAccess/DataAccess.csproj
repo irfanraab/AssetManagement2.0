@@ -51,9 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\MyContext.cs" />
-    <Compile Include="Migrations\201906250930558_AssetManagementDB.cs" />
-    <Compile Include="Migrations\201906250930558_AssetManagementDB.Designer.cs">
-      <DependentUpon>201906250930558_AssetManagementDB.cs</DependentUpon>
+    <Compile Include="Migrations\201906270858087_AssetManagementDB.cs" />
+    <Compile Include="Migrations\201906270858087_AssetManagementDB.Designer.cs">
+      <DependentUpon>201906270858087_AssetManagementDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Condition.cs" />
@@ -90,8 +90,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906250930558_AssetManagementDB.resx">
-      <DependentUpon>201906250930558_AssetManagementDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906270858087_AssetManagementDB.resx">
+      <DependentUpon>201906270858087_AssetManagementDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,6 +16,7 @@ namespace Client.Controllers
     {
         BaseLink get = new BaseLink();
         // GET: Items
+        [Authorize]
         public ActionResult Index()
         {
             return View(LoadItem());

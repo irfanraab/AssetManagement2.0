@@ -16,6 +16,7 @@ namespace Client.Controllers
     {
         BaseLink get = new BaseLink();
         // GET: Handovers
+        [Authorize]
         public ActionResult Index()
         {
             return View(LoadHandover());

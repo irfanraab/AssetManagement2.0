@@ -16,6 +16,7 @@ namespace Client.Controllers
     {
         BaseLink get = new BaseLink();
         // GET: Locations
+        [Authorize]
         public ActionResult Index()
         {
             return View(LoadLocation());

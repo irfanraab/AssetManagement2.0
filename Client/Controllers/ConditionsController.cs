@@ -17,6 +17,7 @@ namespace Client.Controllers
     {
         BaseLink get = new BaseLink();
         // GET: Conditions
+        // [Authorize]
         public ActionResult Index()
         {
             return View(LoadCondition());

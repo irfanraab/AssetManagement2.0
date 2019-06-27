@@ -46,6 +46,7 @@ function LoadTypeItemProject() {
         success: function (data) {
             console.log(data);
             var html = '';
+                    html += '<option value = "" selected disabled hidden>Choose Type Item</option>';
             $.each(data,
                 function (index, val) {
                     html += ' <option value="' + val.Id + '">' + val.Name_TypeItem + '</option>';
@@ -65,6 +66,7 @@ function LoadItemProject() {
         success: function (data) {
             console.log(data);
             var html = '';
+                    html += '<option value = "" selected disabled hidden>Choose Item</option>';
             $.each(data,
                 function (index, val) {
                     html += ' <option value="' + val.Id + '">' + val.Name_Item + '</option>';
@@ -204,9 +206,9 @@ function Validate() {
         swal("Oops", "Please Insert Name User", "error")
     } else if ($('#NameDivHead').val() == "" || $('#NameDivHead').val() == " ") {
         swal("Oops", "Please Insert Name Divison Head", "error")
-    } else if ($('#TypeItem').val() == "" || $('#TypeItem').val() == " ") {
+    } else if ($('#TypeItem option:selected').val() == "" || $('#TypeItem option:selected').val() == " ") {
         swal("Oops", "Please Insert Date TypeItem", "error")
-    } else if ($('#Item').val() == "" || $('#Item').val() == " ") {
+    } else if ($('#Item option:selected').val() == "" || $('#Item option:selected').val() == " ") {
         swal("Oops", "Please Insert Item", "error")
     } else if ($('#Description').val() == "" || $('#Description').val() == " ") {
         swal("Oops", "Please Insert Type Description", "error")

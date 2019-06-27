@@ -56,6 +56,7 @@ function LoadTypeItemProject() {
         success: function (data) {
             console.log(data);
             var html = '';
+                    html += '<option value = "" selected disabled hidden>Choose Type Item</option>';
             $.each(data,
                 function (index, val) {
                     html += '<option value="' + val.Id + '">' + val.Name_TypeItem + '</option>';
@@ -74,6 +75,7 @@ function LoadLocationProject() {
         success: function (data) {
             console.log(data);
             var html = '';
+                    html += '<option value = "" selected disabled hidden>Choose Location</option>';
             $.each(data,
                 function (index, val) {
                     html += ' <option value="' + val.Id + '">' + val.Name_Location + '</option>';
@@ -92,6 +94,7 @@ function LoadConditionProject() {
         success: function (data) {
             console.log(data);
             var html = '';
+                    html += '<option value = "" selected disabled hidden>Choose Condition</option>';
             $.each(data,
                 function (index, val) {
                     html += ' <option value="' + val.Id + '">' + val.Condition_Name + '</option>';
@@ -249,11 +252,11 @@ function Validate() {
         swal("Oops", "Please Insert Stock", "error")
     } else if ($('#Price').val() == "" || $('#Price').val() == " ") {
         swal("Oops", "Please Insert Price", "error")
-    } else if ($('#TypeItem').val() == "" || $('#TypeItem').val() == " ") {
+    } else if ($('#TypeItem option:selected').val() == "" || $('#TypeItem option:selected').val() == " ") {
         swal("Oops", "Please Insert Type Item", "error")
-    } else if ($('#Location').val() == "" || $('#Location').val() == " ") {
+    } else if ($('#Location option:selected').val() == "" || $('#Location option:selected').val() == " ") {
         swal("Oops", "Please Insert Location", "error")
-    } else if ($('#Condition').val() == "" || $('#Condition').val() == " ") {
+    } else if ($('#Condition option:selected').val() == "" || $('#Condition option:selected').val() == " ") {
         swal("Oops", "Please Insert Condition", "error")
     } else if ($('#Id').val() == "") {
         Save();

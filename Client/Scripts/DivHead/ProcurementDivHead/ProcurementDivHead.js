@@ -34,8 +34,7 @@ function LoadIndexProcurement() {
                 html += '<td>' + val.Item.Name_Item + '</td>';
                 html += '<td>' + val.TypeItem.Name_TypeItem + '</td>';
                 html += '<td>' + val.Status + '</td>';
-                html += '<td>' + '<a href="#" class="fa fa-pencil" onclick="return GetById(' + val.Id + ')">Edit</a>';
-                html += ' | <a href="#" class="fa fa-trash" onclick="return Delete(' + val.Id + ')">Delete</a></td>';
+                html += '<td>' + '<a href="#" onclick="return GetById(' + val.Id + ')">Confirmation</a></td>';
                 html += '</tr>';
                 i++;
             });
@@ -44,7 +43,6 @@ function LoadIndexProcurement() {
     })
 }
 
-document.getElementById('Status1').value = "Submitted";
 
 
 function LoadTypeItemProject() {
@@ -161,41 +159,12 @@ function GetById(Id) {
             $('#Status1').val(result.Status);
 
             $('#myModal').modal('show');
-            $('#Update').show();
-            $('#Save').hide();
+            $('#Approve').show();
+            $('#Reject').show();
         }
     })
 }
 
-function Delete(Id) {
-    swal({
-        title: "Are you sure?",
-        text: "You will not be able to recover this imaginary file!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete it!",
-        closeOnConfirm: false
-    }, function () {
-        $.ajax({
-            url: "/Procurement/Delete/",
-            data: { id: Id },
-            success: function (response) {
-                swal({
-                    title: "Deleted!",
-                    text: "That data has been soft delete!",
-                    type: "success"
-                },
-                    function () {
-                        window.location.href = '/Procurement/Index/';
-                    });
-            },
-            error: function (response) {
-                swal("Oops", "We couldn't connect to the server!", "error");
-            }
-        });
-    });
-}
 
 function ClearScreen() {
     $('#TypeItem').val('');
@@ -232,4 +201,15 @@ function Validate() {
     } else {
         Edit();
     }
+}
+
+
+function Approve() {
+    document.getElementById('Status1').value = "Approved";
+    Edit();
+}
+
+function Reject() {
+    document.getElementById('Status1').value = "Reject";
+    Edit();
 }
